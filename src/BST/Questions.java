@@ -32,4 +32,33 @@ public class Questions extends BinaryTree {
         }
         return root;
     }
+
+// Url : https://leetcode.com/problems/recover-binary-search-tree/
+    TreeNode first = null;
+    TreeNode second = null;
+    TreeNode prev = null;
+    public void recoverTree(TreeNode root) {
+       iot(root);
+       swap(first,second);
+    }
+    private void iot(TreeNode root){
+        if (root == null){
+            return;
+        }
+        iot(root.left);
+        if (prev != null && root.val < prev.val){
+            if (first == null){
+                first = prev;
+            }else{
+                second = prev;
+            }
+        }
+        prev = root;
+        iot(root.right);
+    }
+    private void swap(TreeNode first, TreeNode second){
+        int temp  = first.val;
+        first.val = second.val;
+        second.val = temp;
+    }
 }

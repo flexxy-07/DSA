@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class Subsets {
     public static void main(String[] args) {
-        int[] arr = {4,4,4,1,4};
-         System.out.println(subsetDuplicates(arr)); // [[],[1],[1,4],[1,4,4],[1,4,4,4],[1,4,4,4,4],[4],[4,4],[4,4,4],[4,4,4,4]]
-
-
+        int[] arr = {3,2,1,5};
+       //  System.out.println(countMaxOrSubsets(arr)); // [[],[1],[1,4],[1,4,4],[1,4,4,4],[1,4,4,4,4],[4],[4,4],[4,4,4],[4,4,4,4]]
     }
     static List<List<Integer>> subset(int[] arr){
         List<List<Integer>> outer = new ArrayList<>();
@@ -24,7 +23,7 @@ public class Subsets {
         return outer;
     }
     static List<List<Integer>> subsetDuplicates(int[] arr){
-        Arrays.sort(arr);
+       Arrays.sort(arr);
         List<List<Integer>> outer = new ArrayList<>();
         outer.add(new ArrayList<>());
         int start =0;
@@ -40,9 +39,9 @@ public class Subsets {
                 List<Integer> internal = new ArrayList<>(outer.get(j));
                 internal.add(arr[i]);
                 outer.add(internal);
-
             }
         }
         return outer;
     }
+
 }

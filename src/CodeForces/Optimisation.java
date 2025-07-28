@@ -9,8 +9,10 @@ public class Optimisation {
         int[] players = {4,7,9};
         int[] trainers = {8,2,5,8};
 
-        String s = "leeetcode";
-        System.out.println(makeFancyString(s));
+//        String s = "leeetcode";
+//        System.out.println(makeFancyString(s));
+        int[] arr = { 3,2,4};
+        int target = 6;
 
 
 
@@ -89,5 +91,7 @@ public class Optimisation {
         }
         return ans.toString();
     }
+
+
 
 }
