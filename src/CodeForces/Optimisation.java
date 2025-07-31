@@ -4,15 +4,18 @@ import java.util.*;
 public class Optimisation {
     public static void main(String[] args) { // 1 2 3 4 5 6 7
         Scanner sc = new Scanner(System.in);
-        int[] op = {0,1,0,1};
-   //     System.out.println(kthCharacter(10,op));
-        int[] players = {4,7,9};
-        int[] trainers = {8,2,5,8};
+//        int[] op = {0,1,0,1};
+//   //     System.out.println(kthCharacter(10,op));
+//        int[] players = {4,7,9};
+//        int[] trainers = {8,2,5,8};
+//
+////        String s = "leeetcode";
+////        System.out.println(makeFancyString(s));
+//        int[] arr = { 3,2,4};
+//        int target = 6;
+        int[] arr = {1,3,1,2,2};
+        System.out.println(countCompleteSubarrays(arr));
 
-//        String s = "leeetcode";
-//        System.out.println(makeFancyString(s));
-        int[] arr = { 3,2,4};
-        int target = 6;
 
 
 
@@ -90,6 +93,27 @@ public class Optimisation {
             prev = ch;
         }
         return ans.toString();
+    }
+    public static int countCompleteSubarrays(int[] arr) {
+        HashSet<Integer> set = new HashSet<>();
+        for(int val : arr){
+            set.add(val);
+        }
+        System.out.println(set.size());
+        int counter = 0;
+        int maxSize = set.size();
+        for(int i = 0;i < arr.length; i++){
+            HashSet<Integer> pres = new HashSet<>();
+            for(int j = i; j < arr.length; j++){
+                pres.add(arr[j]);
+                if(pres.size() == maxSize){
+                    counter++;
+                }
+            }
+            System.out.println(pres.size());
+            // System.out.println(pres);
+        }
+        return counter;
     }
 
 

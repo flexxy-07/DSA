@@ -1,5 +1,6 @@
 package BitwiseQuestions;
 
+import java.util.HashSet;
 import java.util.Map;
 
 public class Questions {
@@ -35,6 +36,24 @@ public class Questions {
             }
         }
         return maxLength;
+    }
+// Url : https://leetcode.com/problems/bitwise-ors-of-subarrays/?envType=daily-question&envId=2025-07-31
+
+    public int subarrayBitwiseORs(int[] arr) {
+        HashSet<Integer> ans = new HashSet<>();
+        HashSet<Integer> prev = new HashSet<>();
+
+        for (int val : arr){
+            HashSet<Integer> current = new HashSet<>();
+            current.add(val);
+
+            for (int num : prev){
+                current.add(val | num);
+            }
+            ans.addAll(current);
+            prev = current;
+        }
+        return ans.size();
     }
 }
 
