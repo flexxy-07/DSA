@@ -11,7 +11,7 @@ public class LongestSubstring {
     }
 // Url :  https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
     public static int lengthOfLongestSubstring(String s) {
-        if (s.length() == 0){
+        if (s.isEmpty()){
             return 0;
         }
         int l = 0;
@@ -36,7 +36,6 @@ public class LongestSubstring {
         int l = 0;
         int zeros = 0;
         int maxL = 0;
-        int currL = 0;
         while (r < arr.length){
             if (arr[r] == 0){
                 zeros++;
