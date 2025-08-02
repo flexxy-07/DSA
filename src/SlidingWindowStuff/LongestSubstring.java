@@ -133,5 +133,87 @@ public class LongestSubstring {
         }
         return count;
     }
+// Url : https://leetcode.com/problems/count-number-of-nice-subarrays/description/
+
+    public int numberOfSubarrays(int[] arr, int k) {
+        int equalSum = getSum(arr,k);
+        int oneLess = getSum(arr,k - 1 );
+
+        return equalSum - oneLess;
+    }
+    private int getSum(int[] arr, int k){
+        if (k < 0){
+            return 0;
+        }
+        int r = 0, l = 0, sum = 0;
+        int count = 0;
+
+        while (r < arr.length){
+            sum += arr[r] % 2;
+            while (sum > k){
+                sum -= arr[l] % 2;
+                l++;
+            }
+            count += r - l + 1;
+            r++;
+        }
+        return count;
+    }
+
+// url : https://leetcode.com/problems/subarrays-with-k-different-integers/description/
+
+    public int subarraysWithKDistinct(int[] arr, int k) {
+        int lessThanEqual = getCount(arr,k);
+        int lessThanEqualOne = getCount(arr,k - 1);
+
+        return lessThanEqual - lessThanEqualOne;
+    }
+    private int getCount(int[] arr, int k){
+        int r = 0, l = 0, count = 0;
+        Map<Integer,Integer> map = new HashMap<>();
+        while (r < arr.length){
+          map.put(arr[r],map.getOrDefault(arr[r],0) + 1);
+
+          while (map.size() > k){
+              map.put(arr[l],map.get(arr[l]) - 1);
+              if (map.get(arr[l]) == 0){
+                  map.remove(arr[l]);
+              }
+              l++;
+          }
+          count += r - l + 1;
+          r++;
+        }
+        return count;
+    }
+// Url : https://leetcode.com/problems/minimum-window-substring/description/
+
+//    public String minWindow(String s, String t) {
+//       int r = 0, l = 0, count = 0;
+//       int startIndex = -1;
+//       int minLength = Integer.MAX_VALUE;
+//       HashMap<Character,Integer> map = new HashMap<>();
+//       for (char ch : t.toCharArray()){
+//           map.put(ch,map.getOrDefault(ch , 0) + 1);
+//       }
+//       while (r < s.length()){
+//           if (map.get(s.charAt(r)) > 0){
+//               count ++;
+//               map.put(s.charAt(r),map.get(s.charAt(r)) - 1);
+//           }
+//           while (count == t.length()){
+//               if ( r - l + 1 < minLength){
+//                   minLength = r - l + 1;
+//                   startIndex = l;
+//               }
+//               map.put(s.charAt(l),map.get(s.charAt(l)) - 1);
+//               if (map.get(s.charAt(l)) > 0) {
+//                   count -- ;
+//               }
+//           }
+//           r++;
+//       }
+//       return startIndex == -1 ? "" : s.substring(startIndex,minLength);
+//    }
 
 }
