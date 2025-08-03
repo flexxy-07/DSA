@@ -45,8 +45,7 @@ public class LongestSubstring {
                 l++;
             }
             if (zeros <= k ){
-                currL = r - l + 1;
-                maxL = Math.max(maxL,currL);
+                maxL = Math.max(maxL,r - l + 1);
             }
             r++;
         }
