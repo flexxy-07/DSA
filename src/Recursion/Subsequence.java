@@ -6,10 +6,10 @@ import java.util.List;
 public class Subsequence {
     private static int count =0;
     public static void main(String[] args) {
-        int[] arr = {1,2,3,1,2,6};
-//        Subseq(0,arr,new ArrayList<>());
-        targetSumSubSeq(arr,0,new ArrayList<>(),0, 4);
-        System.out.println(count);
+        int[] arr = {3,1,2};
+        Subseq(0,arr,new ArrayList<>());
+       // targetSumSubSeq(arr,0,new ArrayList<>(),0, 4);
+//        System.out.println(count);
     }
     // Print all the subsequences
     private static void Subseq(int index, int[] arr, List<Integer> list){

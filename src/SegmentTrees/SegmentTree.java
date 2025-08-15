@@ -62,8 +62,6 @@ public class SegmentTree {
         return node.data;
     }
 
-
-
      public void display(){
         display(this.root);
      }
