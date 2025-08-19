@@ -1,14 +1,7 @@
-import java.util.Scanner;
-
-public class timepss {
+class timepss {
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
-        for (int i = 0; i < x; i++) {
-            int size = sc.nextInt();
-            int[] arr = new int[size];
-
-        }
+        int[] arr = {1,2,3};
+        System.out.println(numSubarrayProductLessThanK(arr,0));
     }
+
 }

@@ -113,6 +113,7 @@ public class LongestSubstring {
         int val = lessthanGoal(arr,goal - 1);
         return ans - val;
     }
+
     private int lessthanGoal(int[] arr, int goal){
         if (goal < 0){
             return 0;
@@ -214,5 +215,24 @@ public class LongestSubstring {
 //       }
 //       return startIndex == -1 ? "" : s.substring(startIndex,minLength);
 //    }
+
+    public static int numSubarrayProductLessThanK(int[] arr, int k) {
+        int prod = 1;
+        int r = 0;
+        int l = 0;
+        int count = 0;
+
+        while(r < arr.length){
+            prod *= arr[r];
+
+            while(prod >= k){
+                prod /= arr[l];
+                l++;
+            }
+            count += r - l + 1;
+            r++;
+        }
+        return count;
+    }
 
 }
