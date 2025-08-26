@@ -1,4 +1,4 @@
-public class NQueens {
+public class nQueens {
     public static void main(String[] args) {
         int n=4;
         boolean[][] board = new boolean[n][n];
