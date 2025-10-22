@@ -2,12 +2,13 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {5,4,3,2,1};
+        int[] arr = {2,4,1,3,5};
        int[] ans =  mergesort(arr);
         System.out.println(Arrays.toString(ans));       // Original Array was not modified.
                                                         // New Array was created and returned
-
+        System.out.println(inverseCount);
     }
+    private static int inverseCount = 0;
     static int[] mergesort(int[] arr){
         if (arr.length ==1){
             return arr;
@@ -27,10 +28,11 @@ public class MergeSort {
         int[] mix = new int[left.length + right.length];
 
         while (i < left.length && j < right.length){
-            if (left[i] < right[j]){
+            if (left[i] <= right[j]){
                 mix[k] = left[i];
                 i++;
             }else {
+                inverseCount += left.length - i;
                 mix[k] = right[j];
                 j++;
             }
